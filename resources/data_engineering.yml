@@ -1,0 +1,52 @@
+resources:
+  jobs:
+    data_engineering_ft:
+      name: data_engineering_ft
+
+      schedule:
+        # Run every day at 8:37 AM
+        quartz_cron_expression: '0 0/2 * 1/1 * ? *'
+        timezone_id: Asia/Calcutta
+        pause_status: PAUSED
+
+      email_notifications:
+        on_failure:
+          - himanshu.bajpai@tigeranalytics.com
+
+      tasks:
+        - task_key: DataEngineering_FT
+          notebook_task:
+            notebook_path: ../notebooks/DataEngineering_FT.py
+            base_parameters:
+              env: dev 
+              task: de
+          existing_cluster_id : 0626-090904-18ykd8d0
+
+    data_engineering_gt:
+      name: data_engineering_gt
+
+      schedule:
+        # Run every day at 8:37 AM
+        quartz_cron_expression: '0 0/2 * 1/1 * ? *'
+        timezone_id: Asia/Calcutta
+        pause_status: PAUSED
+
+      email_notifications:
+        on_failure:
+          - himanshu.bajpai@tigeranalytics.com
+
+      tasks:
+        - task_key: DataEngineering_GT
+          notebook_task:
+            notebook_path: ../notebooks/DataEngineering_GT.py
+            base_parameters:
+              env: dev 
+              task: de
+          existing_cluster_id : 0626-090904-18ykd8d0
+      
+
+        
+
+
+
+

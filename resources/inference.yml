@@ -1,0 +1,22 @@
+resources:
+  jobs:
+    inference:
+      name: inference
+
+      schedule:
+        # Run every day at 8:37 AM
+        quartz_cron_expression: '0 0/2 * 1/1 * ? *'
+        timezone_id: Asia/Calcutta
+        pause_status: PAUSED
+
+      email_notifications:
+        on_failure:
+          - himanshu.bajpai@tigeranalytics.com
+
+      tasks:
+        - task_key: Inference
+          notebook_task:
+            notebook_path: ../notebooks/Inference.py
+            base_parameters:
+              env: dev
+          existing_cluster_id : 0626-090904-18ykd8d0

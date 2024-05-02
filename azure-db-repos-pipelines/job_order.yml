@@ -1,0 +1,5 @@
+job_catalog :
+  - data_engineering
+  - feature_engineering
+  - train
+  - inference
